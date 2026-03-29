@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/insert.css">
 <?php
 include "../povezava.php";
 
@@ -12,20 +13,21 @@ $id_otroka = $_POST["id_otroka"];
 $id_zupnije = $_POST["id_zupnije"];
 
 /* SQL poizvedba */
-$sql = "INSERT INTO razredi (id_otroka, id_zupnije)
+$sql = "INSERT INTO razredi (ime_razreda, id_otroka, id_zupnije)
         VALUES ('$ime_razreda','$id_otroka', '$id_zupnije')";
 
 $rezultat_sql = mysqli_query($conn, $sql);
 
-/* obdelava rezultata */
-if ($rezultat_sql) {
-    echo "Razred je bil uspešno vstavljen v bazo.";
-} else {
-    echo "Napaka: razred ni bil vstavljen.<br>";
-    echo mysqli_error($conn);
+?>
+<div class="container">
+    <?php
+if($rezultat_sql) {
+echo '<div class="error">Podatek je vstavljen v bazo</div>';
 }
-
-
+else {
+    echo '<div class="error">Podatek ni vstavljen v bazo</div>';
+}
 /* zapiranje povezave */
 mysqli_close($conn);
 ?>
+<a href="../po_prijavi_admin.php">Nazaj</a>

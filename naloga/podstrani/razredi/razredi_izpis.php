@@ -18,22 +18,25 @@
         }
 
         // SQL poizvedba
-        $sql = "SELECT id, id_otroka, id_zupnije FROM razredi";
+        $sql = "SELECT ime_razreda, zupnije.ime as zime, otroci.ime as oime, otroci.priimek
+         FROM razredi
+        inner join otroci on razredi.id_otroka=otroci.id 
+        inner join zupnije on zupnije.id=razredi.id_zupnije";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             echo "<table border='1'>";
             echo "<tr>
-                    <th>ID razreda</th>
-                    <th>ID otroka</th>
-                    <th>ID župnije</th>
+                    <th>Ime razreda</th>
+                    <th>Otrok</th>
+                    <th>Župnija</th>
                   </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['id_otroka'] . "</td>";
-                echo "<td>" . $row['id_zupnije'] . "</td>";
+                echo "<td>" . $row['ime_razreda'] . "</td>";
+                echo "<td>" . $row['oime']." ".$row["priimek"] . "</td>";
+                echo "<td>" . $row['zime'] . "</td>";
                 echo "</tr>";
             }
 

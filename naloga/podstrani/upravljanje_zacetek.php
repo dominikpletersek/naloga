@@ -12,9 +12,9 @@
     <div class="container">
         <h1>Izberite, kaj želite narediti</h1>
     <ul>
-        <li><a href="otroci/uredi_otroci.php">Uredi otroke</a></li>
-        <li><a href="starsi/uredi_starsi.php">Uredi starše</a></li>
-        <li><a href="ucitelji/uredi_ucitelji.php">Uredi učitelja</a></li>
+        <li><a href="otroci/uredi_otroci_upravljanje.php">Uredi otroke</a></li>
+        <li><a href="starsi/starsi_uredi.php">Uredi starše</a></li>
+        <li><a href="ucitelji/ucitelji_uredi.php">Uredi učitelja</a></li>
         <li><a href="razredi/arhiviraj_9._razrede.php">Arhiviraj vse 9. razrede</a></li>
         <li><a href="po_prijavi_ucitelj.php">Domov</a></li>
     </ul>

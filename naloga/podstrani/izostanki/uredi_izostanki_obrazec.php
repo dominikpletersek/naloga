@@ -22,8 +22,8 @@
 
             <label>Opravičljivost:</label>
             <select name="opravicljivost" required>
-                <option value="1" <?php if($_GET["opravicljivost"] == 1) echo "selected"; ?>>Da</option>
-                <option value="0" <?php if($_GET["opravicljivost"] == 0) echo "selected"; ?>>Ne</option>
+                <option value="Opravićeno" <?php if($_GET["opravicljivost"] == "Opravičeno") echo "selected"; ?>>Da</option>
+                <option value="Neopravičeno" <?php if($_GET["opravicljivost"] == "Neopravičeno") echo "selected"; ?>>Ne</option>
             </select><br>
 
             <label>ID otroka:</label>

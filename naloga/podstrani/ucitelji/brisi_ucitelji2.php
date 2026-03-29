@@ -17,7 +17,6 @@ if (mysqli_num_rows($result) > 0) {
     // Izpiši podatke v tabeli
     echo "<table border='1'>";
     echo "<tr>
-            <th>ID</th>
             <th>Ime</th>
             <th>Priimek</th>
             <th>Telefon</th>
@@ -27,7 +26,6 @@ if (mysqli_num_rows($result) > 0) {
     
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['ime'] . "</td>";
         echo "<td>" . $row['priimek'] . "</td>";
         echo "<td>" . $row['telefon'] . "</td>";

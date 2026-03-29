@@ -28,11 +28,35 @@
                 <label>Razred:</label>
                 <input type="text" name="razred" maxlength="20" required>
     
-                <label>ID župnije:</label>
-                <input type="number" name="id_zupnije">
+                <label>Župnije</label> <?php
+                include "../povezava.php";
+        $sql = "SELECT id, ime
+                FROM zupnije";
+
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+        }
+            while ($row = mysqli_fetch_assoc($result)) {
+                $ime=$row["ime"];
+                $id=$row["id"];
+      echo'<div><input type="radio" name="id_zupnije" value="'.$id.'">'.$ime.'</div>';
+            }
+            ?>
     
-                <label>ID učitelja:</label>
-                <input type="number" name="id_ucitelja">
+                <label>Učitelji</label> <?php
+        $sql = "SELECT id, ime, priimek
+                FROM ucitelji";
+
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+        }
+            while ($row = mysqli_fetch_assoc($result)) {
+                $ime=$row["ime"];
+                $priimek=$row["priimek"];
+                $id=$row["id"];
+      echo'<div><input type="radio" name="id_ucitelja" value="'.$id.'">'.$ime.' '.$priimek.'</div>';
+            }
+            ?>
     
                 <input type="submit" value="Potrdi" id="potrdi">
     

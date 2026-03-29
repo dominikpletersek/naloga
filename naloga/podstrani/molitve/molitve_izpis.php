@@ -24,13 +24,11 @@
         if (mysqli_num_rows($result) > 0) {
             echo "<table border='1'>";
             echo "<tr>
-                    <th>ID</th>
                     <th>Naslov molitve</th>
                   </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['naslov_molitve'] . "</td>";
                 echo "</tr>";
             }

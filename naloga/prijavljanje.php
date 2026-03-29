@@ -60,5 +60,6 @@ echo '<div class="error">Napačno uporabniško ime ali geslo</div>';
 mysqli_close($conn);
 ?>
 <a href="index.php">Nazaj</a>
+</div>
 </body>
 </html>

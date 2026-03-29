@@ -19,8 +19,22 @@
                 <label>Snov:</label>
                 <input type="text" name="snov" maxlength="20" required>
     
-                <label>ID otroka:</label>
-                <input type="number" name="id_otroka" required>
+                <label>Otrok:</label>
+                <?php include "../povezava.php";
+        $sql = "SELECT id, ime, priimek 
+                FROM otroci";
+
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            echo'<select name="id_otroka">';
+        }
+            while ($row = mysqli_fetch_assoc($result)) {
+                $ime=$row["ime"];
+                $priimek=$row["priimek"];
+                $id=$row["id"];
+      echo'<option value="'.$id.'">'.$ime.' '.$priimek.'</option>';
+            }
+            ?>
     
                 <input type="submit" value="Potrdi" id="potrdi">
     

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/insert.css">
 <?php
 include "../povezava.php";
 
@@ -19,15 +20,16 @@ $sql = "INSERT INTO zupnije (ime, naslov, kraj)
 
 $rezultat_sql = mysqli_query($conn, $sql);
 
-/* obdelava rezultata */
-if ($rezultat_sql) {
-    echo "Župnija je bila uspešno vstavljena v bazo.";
-} else {
-    echo "Napaka: župnija ni bila vstavljena.<br>";
-    echo mysqli_error($conn);
+?>
+<div class="container">
+    <?php
+if($rezultat_sql) {
+echo '<div class="error">Podatek je vstavljen v bazo</div>';
 }
-
-
+else {
+    echo '<div class="error">Podatek ni vstavljen v bazo</div>';
+}
 /* zapiranje povezave */
 mysqli_close($conn);
 ?>
+<a href="../po_prijavi_admin.php">Nazaj</a>

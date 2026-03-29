@@ -18,24 +18,22 @@
         }
 
         // SQL poizvedba
-        $sql = "SELECT id, ocena, snov, id_otroka FROM ocene";
+        $sql = "SELECT ocena, snov, id_otroka, ime, priimek FROM ocene inner join otroci ON ocene.id_otroka=otroci.id";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             echo "<table border='1'>";
             echo "<tr>
-                    <th>ID</th>
                     <th>Ocena</th>
                     <th>Snov</th>
-                    <th>ID otroka</th>
+                    <th>Otrok</th>
                   </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['ocena'] . "</td>";
                 echo "<td>" . $row['snov'] . "</td>";
-                echo "<td>" . $row['id_otroka'] . "</td>";
+                echo "<td>" . $row['ime'] ." ".$row["priimek"]. "</td>";
                 echo "</tr>";
             }
 

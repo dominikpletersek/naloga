@@ -19,41 +19,41 @@
 
         // SQL poizvedba
         $sql = "SELECT 
-                    id, 
-                    ime, 
-                    priimek, 
-                    datum_rojstva, 
+                    otroci.ime, 
+                    otroci.priimek, 
+                    otroci.datum_rojstva, 
                     datum_krsta, 
                     razred, 
-                    id_zupnije, 
-                    id_ucitelja 
-                FROM otroci";
+                    ucitelji.ime as ucime, 
+                    zupnije.ime as zuime,
+                    ucitelji.priimek as upri
+                FROM otroci inner join zupnije on otroci.id_zupnije=zupnije.id 
+                inner join ucitelji on otroci.id_ucitelja=ucitelji.id";
 
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             echo "<table border='1'>";
             echo "<tr>
-                    <th>ID</th>
                     <th>Ime</th>
                     <th>Priimek</th>
                     <th>Datum rojstva</th>
                     <th>Datum krsta</th>
                     <th>Razred</th>
-                    <th>ID župnije</th>
-                    <th>ID učitelja</th>
+                    <th>Župnija</th>
+                    <th>Učitelj</th>
                   </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
+                
                 echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['ime'] . "</td>";
                 echo "<td>" . $row['priimek'] . "</td>";
                 echo "<td>" . $row['datum_rojstva'] . "</td>";
                 echo "<td>" . $row['datum_krsta'] . "</td>";
                 echo "<td>" . $row['razred'] . "</td>";
-                echo "<td>" . $row['id_zupnije'] . "</td>";
-                echo "<td>" . $row['id_ucitelja'] . "</td>";
+                echo "<td>" . $row['zuime'] . "</td>";
+                echo "<td>" . $row['ucime']." ".$row["upri"] . "</td>";
                 echo "</tr>";
             }
 

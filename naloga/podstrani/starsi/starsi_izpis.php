@@ -19,23 +19,22 @@
 
         // SQL poizvedba
         $sql = "SELECT 
-                    id, 
-                    ime, 
-                    priimek, 
+                    starsi.ime, 
+                    starsi.priimek, 
                     `dekliski_priimek`, 
-                    datum_rojstva, 
+                    starsi.datum_rojstva, 
                     poklic, 
-                    telefon, 
-                    naslov, 
-                    id_otroka 
-                FROM starsi";
+                    starsi.telefon, 
+                    starsi.naslov,
+                    otroci.ime as oime, 
+                    otroci.priimek as opri 
+                FROM starsi inner join otroci on starsi.id_otroka=otroci.id";
 
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             echo "<table border='1'>";
             echo "<tr>
-                    <th>ID</th>
                     <th>Ime</th>
                     <th>Priimek</th>
                     <th>Dekliški priimek</th>
@@ -43,12 +42,11 @@
                     <th>Poklic</th>
                     <th>Telefon</th>
                     <th>Naslov</th>
-                    <th>ID otroka</th>
+                    <th>Otrok</th>
                   </tr>";
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['ime'] . "</td>";
                 echo "<td>" . $row['priimek'] . "</td>";
                 echo "<td>" . $row['dekliski_priimek'] . "</td>";
@@ -56,7 +54,7 @@
                 echo "<td>" . $row['poklic'] . "</td>";
                 echo "<td>" . $row['telefon'] . "</td>";
                 echo "<td>" . $row['naslov'] . "</td>";
-                echo "<td>" . $row['id_otroka'] . "</td>";
+                echo "<td>" . $row['oime']." ".$row["opri"] . "</td>";
                 echo "</tr>";
             }
 

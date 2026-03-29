@@ -17,14 +17,12 @@ if (mysqli_num_rows($result) > 0) {
     // Izpiši podatke v tabeli
     echo "<table border='1'>";
     echo "<tr>
-            <th>ID</th>
             <th>Naslov molitve</th>
             <th>Akcija</th>
           </tr>";
     
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['naslov_molitve'] . "</td>";
         echo '<td><a href="brisi_molitve.php?id='.$row["id"].'">Briši</a></td>';
         echo "</tr>";
