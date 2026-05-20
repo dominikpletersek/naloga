@@ -1,0 +1,84 @@
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f9;
+margin:0;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+margin-top:30px;
+}
+
+h1{
+text-align:center;
+color:#2c6ed5;
+}
+
+.filter-form{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+select, button{
+padding:10px;
+font-size:16px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+background:#2c6ed5;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#1e4fa8;
+}
+
+.children-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.child-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.child-card h3{
+margin-top:0;
+color:#2c6ed5;
+}
+
+.child-info{
+margin:6px 0;
+}
+
+.child-info span{
+font-weight:bold;
+}
+
+.absence-button{
+display:inline-block;
+margin-top:10px;
+padding:8px 12px;
+background:#ff9800;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+.absence-button:hover{
+background:#e68900;
+}
+
